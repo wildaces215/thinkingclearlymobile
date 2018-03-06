@@ -1,0 +1,11 @@
+page-list {
+    ion-content {
+        @include linear-gradient(bottom right,$rose-water);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+      ion-item{
+          background: transparent !important;
+      }
+}

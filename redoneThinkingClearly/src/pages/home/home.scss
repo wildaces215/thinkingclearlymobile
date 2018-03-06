@@ -1,0 +1,20 @@
+page-home {
+    
+    
+    ion-content {
+        @include linear-gradient(bottom right,$rose-water);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+      ion-label{
+          background:transparent !important;
+      }
+      .conflictForm{
+          background:transparent !important;
+      }
+      #conflictName{
+          background:transparent !important;
+      }
+}
+

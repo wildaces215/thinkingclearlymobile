@@ -1,0 +1,51 @@
+<ion-header no-header>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <div class="conflictForm">
+    <form [formGroup]="questionAnswers" (submit)="onSumbit()">
+
+      
+      <ion-item id="conflictName">
+        <ion-label floating ion-text>State the name of Conflict.</ion-label>
+        <ion-input type="text" formControlName="conflictName"></ion-input>
+        
+      </ion-item>
+
+      <ion-item id="conflictName">
+        <ion-label floating ion-text>Describe the action.</ion-label>
+        <ion-input  type="text" formControlName="firstAnswer"></ion-input>
+      </ion-item>
+
+
+      <ion-item id="conflictName">
+        <ion-label floating>Describe your behavior in the action</ion-label>
+        <ion-input type="text" formControlName="secondAnswer"></ion-input>
+      </ion-item>
+
+
+      <ion-item id="conflictName">
+        <ion-label floating>Describe the consequences.</ion-label>
+        <ion-input type="text" formControlName="thirdAnswer"></ion-input>
+      </ion-item>
+
+      <ion-item id="conflictName">
+        <ion-label floating>Please refute the whole conflict</ion-label>
+        <ion-input type="text" formControlName="fourthAnswer"></ion-input>
+      </ion-item>
+      
+      <button ion-button type="submit"color="secondary">Send!</button>
+    </form>
+    <ion-list id="conflictName">
+      <p ionic-text color="danger" *ngFor="let error of errors" id="conflictName">
+        {{ error }}
+      </p>
+    </ion-list>
+  </div>
+</ion-content>
