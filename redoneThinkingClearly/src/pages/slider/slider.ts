@@ -30,7 +30,7 @@ export class SliderPage {
   public arrayToPresent=[];
   constructor(public events:Events,public navCtrl: NavController, public viewController:ViewController,public network:NetworkProvider) {
     //this.itemToSearch=this.navParams.get('param1');
-    this.searchOne=this.network.getSingleDatabase();
+    this.network.getSingleDatabase();
 
   }
 

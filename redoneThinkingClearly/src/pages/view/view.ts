@@ -49,7 +49,7 @@ export class ViewPage {
     this.buttonSelected=dataPost;
     console.log(typeof dataPost);
     //this.events.publish('userClicked',dataPost,this.buttonSelected);
-    
+    this.events.publish('userClickedName',dataPost);
     //this.navCtrl.push(SliderPage,{param1:this.buttonSelected});
     let pop=this.modal.create(SliderPage);
     pop.present();

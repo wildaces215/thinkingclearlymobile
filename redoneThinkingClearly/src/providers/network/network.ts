@@ -38,13 +38,18 @@ export class NetworkProvider {
   constructor(public event:Events,public http:HttpClient,private network:Network ,private afs:AngularFirestore) {
     this.db.collection('posts');
     console.log('Hello NetworkProvider Provider');
-    
+    event.subscribe('userClickedName',(data) => {
+      this.dataCalled = data;
+      console.log('hello ', data);
+      
+    });
   }
   
   getNetworkConnection(){
     console.log(this.network.type);
   }
   getCollectionDatabase(){
+    
   this.collectionReference=this.db.collection('posts');
     this.collectionReference.get()
     .then(snapshot =>{
@@ -59,14 +64,25 @@ export class NetworkProvider {
     return this.something;
   }
   getSingleDatabase(){
+    console.log(this.dataCalled);
     this.collectionReference=this.db.collection('posts');
     this.collectionReference.get()
     .then(snapshot =>{
+      var keys = Object.keys(snapshot.data || {});
+      var promises=[];
       snapshot.forEach(doc => {
-       
-        this.firstGet.push(doc.data());
+        if(this.dataCalled == doc.id){
+          promises.push(doc.data());
+        }
+     
+        
       });
+      return Promise.all(promises);
+    }).then(firstGet =>{
+      console.log('firstGet =>',firstGet);
+      
     })
+
     .catch(err =>{
       console.log(err);
     });
