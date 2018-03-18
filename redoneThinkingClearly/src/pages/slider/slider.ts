@@ -27,10 +27,12 @@ export class SliderPage {
   public itemToSearch:string;
   public db=firebase.firestore();
   public searchOne;
+  public dataSelected:any;
   public arrayToPresent=[];
   constructor(public events:Events,public navCtrl: NavController, public viewController:ViewController,public network:NetworkProvider) {
     //this.itemToSearch=this.navParams.get('param1');
     this.network.getSingleDatabase();
+    this.dataSelected = this.network.getSingleDatabase(); 
 
   }
 

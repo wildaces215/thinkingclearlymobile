@@ -57,9 +57,8 @@ export class HomePage implements ErrorHandler{
     if(this.questionAnswers.value.thirdAnswer == ''){
       this.errors.push('You must add consequences');
     }
-    if(this.questionAnswers.value.fourthAnswer == ''){
-      this.errors.push('you must add a dispiute');
-    }else{
+    
+    else{
       this.db.collection('posts').doc(this.questionAnswers.value.conflictName).set({
         first:this.questionAnswers.value.firstAnswer,
         second:this.questionAnswers.value.secondAnswer,
@@ -67,6 +66,7 @@ export class HomePage implements ErrorHandler{
         fourth:this.questionAnswers.value.fourthAnswer
       });
       console.log('The form went to the database');
+      this.errors.push('Form was sumbited');
     }
     
   }

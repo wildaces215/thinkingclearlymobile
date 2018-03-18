@@ -30,12 +30,13 @@ interface Posts{
 })
 export class ViewPage {
   public dataPosts:any;
-
+  public dataSelected:any;
   public buttonSelected;
 
   constructor(public events:Events,public navCtrl: NavController,private afs:AngularFirestore,public modal:ModalController,public network:NetworkProvider) {
     this.dataPosts=this.network.getCollectionDatabase();
-    //console.log(this.dataPosts);
+    this.dataSelected= this.network.getSingleDatabase();   
+     //console.log(this.dataPosts);
     
   }
 
