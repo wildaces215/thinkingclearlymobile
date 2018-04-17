@@ -9,45 +9,84 @@ import{ AngularFirestore, AngularFirestoreCollection,AngularFirestoreDocument } 
 import { ErrorHandler } from '@angular/core/src/error_handler';
 import { Network } from '@ionic-native/network';
 import { NetworkProvider } from '../../providers/network/network';
+import { Observable } from 'rxjs/Observable';
 
-
+import 'rxjs/add/operator/mergeMap';
 /**
  * Generated class for the SliderPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+export interface Post{
+  name:string,
+  firstAnswer:string,
+  secondAnswer:string,
+  thirdAnswer:string
+}
 @IonicPage()
 @Component({
   selector: 'page-slider',
   templateUrl: 'slider.html',
 })
 export class SliderPage {
+
+  public firstScreen;
+  public secondScreen;
+  public thirdScreen;
+
   public itemToSearch:string;
   public db=firebase.firestore();
-  public searchOne;
+  //public dataCalled:string;
+  public getToScreen;
+  objectThing={}as Post;
+  dataToScreen:AngularFirestoreCollection<Post>=this.afs.collection('posts');
+  //post$:Observable<Post>;
+  public dataCalled:string;
   public dataSelected:any;
   public arrayToPresent=[];
-  constructor(public events:Events,public navCtrl: NavController, public viewController:ViewController,public network:NetworkProvider) {
-    //this.itemToSearch=this.navParams.get('param1');
-    this.network.getSingleDatabase();
-    this.dataSelected = this.network.getSingleDatabase(); 
-
+  constructor(private afs:AngularFirestore,public events:Events,public navCtrl: NavController,public navParams:NavParams, public viewController:ViewController,public network:NetworkProvider) {
+    
+    //this.network.getCollectionDatabase();
+     
+    /*
+    events.subscribe('userClickedName',(one,data) => {
+      this.dataCalled = data;
+      //console.log('hello ', data);
+      
+    });*/
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Modal');
-    console.log(this.searchOne);
-    this.presentModalConflict();
+    
+    this.dataSelected=this.navParams.get('first');
+    
+    console.log(typeof this.dataSelected);
+    
+    
+    this.getToScreen=this.afs.collection('posts',ref => ref.where('conflict','==',this.dataSelected).limit(1))
+    .valueChanges()
+    .flatMap(result => result)
+    .subscribe(
+      v =>{
+        let y=JSON.parse(JSON.stringify(v));
+        this.dataToScreen=y.conflict;
+        this.firstScreen=y.first;
+        this.secondScreen=y.second;
+        this.thirdScreen=y.third;
+        /*this.first=y.first;
+        this.second=y.second;
+        this.third=y.third;*/
+      }
+      
+    );
+    
+    
   }
  
-  presentModalConflict(){
-    
-    console.log(this.searchOne);
-  }
+  
  closeModal(){
-   this.searchOne=[];
    this.viewController.dismiss();
  }
 }

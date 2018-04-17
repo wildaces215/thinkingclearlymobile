@@ -5,7 +5,7 @@ import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
-import *  as firebase from'firebase';
+import *  as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -35,14 +35,12 @@ export class NetworkProvider {
   public dataCalled;
   public something=[];
 
+
+  
   constructor(public event:Events,public http:HttpClient,private network:Network ,private afs:AngularFirestore) {
     this.db.collection('posts');
     console.log('Hello NetworkProvider Provider');
-    event.subscribe('userClickedName',(data) => {
-      this.dataCalled = data;
-      console.log('hello ', data);
-      
-    });
+   
   }
   
   getNetworkConnection(){
@@ -64,30 +62,26 @@ export class NetworkProvider {
     return this.something;
   }
   getSingleDatabase(){
-    console.log(this.dataCalled);
-    this.collectionReference=this.db.collection('posts');
+    //console.log(this.dataCalled);
+    //return this.collectionReference=this.db.collection('posts').doc(this.dataCalled);
+     
+   //
+    
+    /*
     this.collectionReference.get()
     .then(snapshot =>{
-      var keys = Object.keys(snapshot.data || {});
-      var promises=[];
+      
       snapshot.forEach(doc => {
         if(this.dataCalled == doc.id){
-          promises.push(doc.data());
+          return snapshot.map(doc.id => doc.data());
         }
      
         
-      });
-      return Promise.all(promises);
-    }).then(firstGet =>{
-      console.log('firstGet =>',firstGet);
+      }).then(firstGet=>{
+        console.log(firstGet);
+      })
       
-    })
-
-    .catch(err =>{
-      console.log(err);
-    });
-    return this.firstGet;
-    
+    })*/
   }
 
 }

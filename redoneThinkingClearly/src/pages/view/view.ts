@@ -35,7 +35,7 @@ export class ViewPage {
 
   constructor(public events:Events,public navCtrl: NavController,private afs:AngularFirestore,public modal:ModalController,public network:NetworkProvider) {
     this.dataPosts=this.network.getCollectionDatabase();
-    this.dataSelected= this.network.getSingleDatabase();   
+    
      //console.log(this.dataPosts);
     
   }
@@ -48,12 +48,19 @@ export class ViewPage {
     //console.log(dataPost);
 
     this.buttonSelected=dataPost;
-    console.log(typeof dataPost);
+    let toPublish={
+      first:this.buttonSelected,
+      second:dataPost
+    }
+    this.navCtrl.push(SliderPage,{
+      first:dataPost
+    });
+    //console.log(typeof dataPost);
     //this.events.publish('userClicked',dataPost,this.buttonSelected);
-    this.events.publish('userClickedName',dataPost);
+    this.events.publish('userClickedName',toPublish,2);
     //this.navCtrl.push(SliderPage,{param1:this.buttonSelected});
-    let pop=this.modal.create(SliderPage);
-    pop.present();
+    this.modal.create(SliderPage);
+    
   }
   
 
