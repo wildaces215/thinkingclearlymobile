@@ -47,14 +47,7 @@ export class SliderPage {
   public arrayToPresent=[];
   constructor(private afs:AngularFirestore,public events:Events,public navCtrl: NavController,public navParams:NavParams, public viewController:ViewController,public network:NetworkProvider) {
     
-    //this.network.getCollectionDatabase();
-     
-    /*
-    events.subscribe('userClickedName',(one,data) => {
-      this.dataCalled = data;
-      //console.log('hello ', data);
-      
-    });*/
+  
     
   }
 
@@ -75,9 +68,6 @@ export class SliderPage {
         this.firstScreen=y.first;
         this.secondScreen=y.second;
         this.thirdScreen=y.third;
-        /*this.first=y.first;
-        this.second=y.second;
-        this.third=y.third;*/
       }
       
     );
