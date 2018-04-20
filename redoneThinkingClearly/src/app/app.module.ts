@@ -25,15 +25,9 @@ import 'rxjs/add/operator/map';
 import { ComponentsModule } from '../components/components.module';
 import { SliderPage } from '../pages/slider/slider';
 
-//Plugins
-//firebase config would go here taken out for security purposes
+
 export const firebaseConfig= {
-  apiKey: "AIzaSyBnAtpWuFA-4z6zmkByQPHOTmVYrUnHik8",
-  authDomain: "thinkingclearly-32938.firebaseapp.com",
-  databaseURL: "https://thinkingclearly-32938.firebaseio.com",
-  projectId: "thinkingclearly-32938",
-  storageBucket: "thinkingclearly-32938.appspot.com",
-  messagingSenderId: "816024632443"
+ //Creditonals for database go here 
 };
 
 
