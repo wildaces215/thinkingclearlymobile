@@ -68,6 +68,7 @@ export class HomePage implements ErrorHandler{
       });
       console.log('The form went to the database');
       this.errors.push('Form was sumbited');
+      this.questionAnswers.reset();
     }
     
   }
