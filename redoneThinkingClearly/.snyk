@@ -1,0 +1,68 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > tar-pack > debug':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > tar-pack > debug:
+        patched: '2022-10-05T21:55:39.088Z'
+  'npm:extend:20180424':
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > extend':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > extend:
+        patched: '2022-10-05T21:55:39.088Z'
+  'npm:hoek:20180212':
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > hawk > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > hawk > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > hawk > boom > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > hawk > sntp > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > hawk > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > hawk > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > hawk > boom > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > hawk > sntp > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2022-10-05T21:55:39.088Z'
+  SNYK-JS-LODASH-567746:
+    - firebase > @firebase/firestore > grpc > lodash:
+        patched: '2022-10-05T21:55:39.088Z'
+  'npm:lodash:20180130':
+    - cordova-ios > plist > xmlbuilder > lodash:
+        patched: '2022-10-05T21:55:39.088Z'
+    - cordova-android > cordova-common > plist > xmlbuilder > lodash:
+        patched: '2022-10-05T21:55:39.088Z'
+    - cordova-ios > cordova-common > plist > xmlbuilder > lodash:
+        patched: '2022-10-05T21:55:39.088Z'
+    - cordova-ios > ios-sim > plist > xmlbuilder > lodash:
+        patched: '2022-10-05T21:55:39.088Z'
+  'npm:stringstream:20180511':
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > stringstream':
+        patched: '2022-10-05T21:55:39.088Z'
+    - firebase > @firebase/firestore > grpc > node-pre-gyp > request > stringstream:
+        patched: '2022-10-05T21:55:39.088Z'
+  'npm:tough-cookie:20170905':
+    - '@angular/compiler-cli > chokidar > fsevents > node-pre-gyp > request > tough-cookie':
+        patched: '2022-10-05T21:55:39.088Z'
